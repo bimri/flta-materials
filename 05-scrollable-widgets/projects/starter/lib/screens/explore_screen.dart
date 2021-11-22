@@ -25,11 +25,8 @@ class ExploreScreen extends StatelessWidget {
           // 5
           final recipes = snapshot.data?.todayRecipes ?? [];
           // TODO: Replace this with TodayRecipeListView
-          return Center(
-            child: Container(
-              child: const Text('Show TodayRecipeListView'),
-            ),
-          );
+          return TodayRecipeListView(recipes: recipes);
+
         } else {
           // 6
           return const Center(
