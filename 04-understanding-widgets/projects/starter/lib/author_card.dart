@@ -53,13 +53,18 @@ class _AuthorCardState extends State<AuthorCard> {
             ],
           ),
           IconButton(
+            // 1
             icon: Icon(_isFavorited ? Icons.favorite : Icons.favorite_border),
             iconSize: 30,
-            color: Colors.grey[400],
+            // 2
+            color: Colors.red[400],
             onPressed: () {
-              _isFavorited = !_isFavorited;
+              // 3
+              setState(() {
+                _isFavorited = !_isFavorited;
+              });
             },
-          ),
+          )
         ],
       ),
     );
