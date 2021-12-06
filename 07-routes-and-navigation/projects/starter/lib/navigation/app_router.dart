@@ -84,8 +84,10 @@ class AppRouter extends RouterDelegate
                 // 4 No create
               }),
 
-        // TODO: Add Profile Screen
-        // TODO: Add WebView Screen
+        if (profileManager.didSelectUser)
+          ProfileScreen.page(profileManager.getUser),
+
+        if (profileManager.didTapOnRaywenderlich) WebViewScreen.page(),
       ],
     );
   }
@@ -110,6 +112,10 @@ class AppRouter extends RouterDelegate
 
     if (route.settings.name == FooderlichPages.profilePath) {
       profileManager.tapOnProfile(false);
+    }
+
+    if (route.settings.name == FooderlichPages.raywenderlich) {
+      profileManager.tapOnRaywenderlich(false);
     }
 
     // 6
