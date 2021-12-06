@@ -101,14 +101,17 @@ class AppRouter extends RouterDelegate
       return false;
     }
 
-    // 5
-    // TODO: Handle Onboarding and splash
     if (route.settings.name == FooderlichPages.groceryItemDetails) {
       groceryManager.groceryItemTapped(-1);
     }
 
-    // TODO: Handle state when user closes profile screen
-    // TODO: Handle state when user closes WebView screen
+    if (profileManager.didSelectUser)
+      ProfileScreen.page(profileManager.getUser);
+
+    if (route.settings.name == FooderlichPages.profilePath) {
+      profileManager.tapOnProfile(false);
+    }
+
     // 6
     return true;
   }
