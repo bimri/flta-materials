@@ -56,7 +56,8 @@ class _HomeState extends State<Home> {
                 Theme.of(context).textSelectionTheme.selectionColor,
             currentIndex: widget.currentTab,
             onTap: (index) {
-              // TODO: Update user's selected tab
+              Provider.of<AppStateManager>(context, listen: false)
+                  .goToTab(index);
             },
             items: <BottomNavigationBarItem>[
               const BottomNavigationBarItem(
